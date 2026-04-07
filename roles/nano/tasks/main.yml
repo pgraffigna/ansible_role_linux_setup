@@ -1,8 +1,4 @@
 ---
-- name: Incluye el archivo con las variables
-  ansible.builtin.include_vars:
-    file: vars_main.yml
-
 - name: Instalar nano
   ansible.builtin.apt:
     name: [ 'nano', 'git' ]
@@ -14,6 +10,7 @@
     repo: "{{ nano_repo }}"
     dest: "/home/{{ usuario }}/.nano"
     version: "{{ nano_version }}"
+    update: no
   become_user: "{{ usuario }}"
 
 - name: Copiar config
@@ -22,4 +19,4 @@
     dest: "/home/{{ usuario }}/.nanorc"
     owner: "{{ usuario }}"
     group: "{{ usuario }}"
-    mode: 0770
+    mode: '0600'

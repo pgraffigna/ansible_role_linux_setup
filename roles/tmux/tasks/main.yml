@@ -1,8 +1,4 @@
 ---
-- name: Incluye el archivo con las variables
-  ansible.builtin.include_vars:
-    file: vars_main.yml
-
 - name: Instalar tmux + dependencias
   ansible.builtin.apt:
     name: [ 'python3-apt', 'tmux', 'gawk', 'perl', 'sed' ]

@@ -1,8 +1,4 @@
 ---
-- name: Incluye el archivo con las variables
-  ansible.builtin.include_vars:
-    file: vars_main.yml
-
 - name: Importar llave
   ansible.builtin.apt_key:
     url: "{{ brave_url }}/brave-core.asc"
@@ -16,5 +12,5 @@
 
 - name: Instalar brave
   ansible.builtin.apt:
-    name: [ 'brave-browser', 'software-properties-common', 'apt-transport-https' ]
-
+    name: brave-browser
+    state: present

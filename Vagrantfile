@@ -1,20 +1,23 @@
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'libvirt'
-IMAGEN = "generic/ubuntu2004"
-HOSTNAME = "testing-vm"
+IMAGEN = "alvistack/ubuntu-24.04"
+HOSTNAME = "setup.home.local"
 
 Vagrant.configure("2") do |config|
+  config.vm.box_check_update = false
   config.ssh.insert_key = false
-  config.vm.synced_folder ".", "/vagrant", type: "rsync", disabled: true
+  config.vm.synced_folder ".", "/labs", type: "rsync", disabled: true
 
   config.vm.define :server do |s|
     s.vm.box = IMAGEN
     s.vm.hostname = HOSTNAME
-    s.vm.box_check_update = false
 
     s.vm.provider :libvirt do |v|
+      v.cpu_mode = "host-passthrough"
       v.memory = 2048
       v.cpus = 2
-      v.graphics_type = 'none'
+      v.graphics_type = "none"
+      v.disk_bus = "virtio"
+      v.nic_model_type = "virtio"
     end
   end
 end

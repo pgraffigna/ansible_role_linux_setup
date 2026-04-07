@@ -1,8 +1,4 @@
 ---
-- name: Incluye el archivo con las variables
-  ansible.builtin.include_vars:
-    file: vars_main.yml
-
 - name: Borrar llaves viejas de vagrant
   ansible.builtin.file:
     path: "/usr/share/keyrings/{{ item }}"
@@ -22,10 +18,10 @@
     filename: hashicorp
     update_cache: true
 
-- name: Instalar vagrant 
+- name: Instalar vagrant
   ansible.builtin.apt:
     name: [ 'vagrant' ]
-    state: latest    
+    state: latest
 
 - name: Listar plugins
   ansible.builtin.command: "vagrant plugin list"

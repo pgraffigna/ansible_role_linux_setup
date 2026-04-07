@@ -1,8 +1,4 @@
 ---
-- name: Incluye el archivo con las variables
-  ansible.builtin.include_vars:
-    file: vars_main.yml
-
 - name: Importar llave
   ansible.builtin.apt_key:
     state: present

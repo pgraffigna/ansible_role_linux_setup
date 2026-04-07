@@ -1,0 +1,16 @@
+---
+- name: Descargar + Copiar NerdFonts
+  ansible.builtin.unarchive:
+    src: "{{ lsd_nerdfonts }}"
+    dest: /usr/share/fonts/
+    remote_src: true
+    creates: /usr/share/fonts/3270
+
+- name: Instalar Aplicaciones
+  ansible.builtin.package:
+    name:
+      - jq
+      - flameshot
+      - bat
+      - lsd
+    state: present

@@ -1,21 +1,16 @@
 ---
-- name: Incluye el archivo con las variables
-  ansible.builtin.include_vars:
-    file: vars_main.yml
-
 - name: Instalar qemu
-  ansible.builtin.apt:
-    name: "{{ item }}"
+  ansible.builtin.package:
+    name: "{{ qemu_packages }}"
     update_cache: true
     cache_valid_time: 3600
-  with_items: "{{ qemu_packages }}"
 
 - name: Agregar usuarios a grupos
   ansible.builtin.user:
     name: "{{ usuario }}"
     groups: "{{ item }}"
     append: true
-  with_items: [ 'libvirt', 'libvirt-qemu' ]
+  loop: [ 'libvirt', 'libvirt-qemu' ]
   notify: iniciar_libvirtd
 
 

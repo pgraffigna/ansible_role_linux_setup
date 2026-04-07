@@ -1,17 +1,18 @@
 ---
 - hosts: testing
   become: true
-  gather_facts: false
+  gather_facts: true
+
+  vars_files:
+    - vars_main.yml
 
   roles:
-    # - brave
-    # - jq_flameshot_bat
-    # - codium
-    # - nano
-    # - tmux
+    - brave
+    - tools
+    - codium
+    - nano
+    - tmux
     - qemu
     - vagrant
-    # - lsd
-    # - ohmybash
-    # - python_tools
-    # - bashrc
+    - ohmybash
+    - bashrc

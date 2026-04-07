@@ -1,8 +1,5 @@
 ---
-- name: Incluye el archivo con las variables
-  ansible.builtin.include_vars:
-    file: vars_main.yml
-
 - name: Descargar + Instalar ulauncher
   ansible.builtin.apt:
     deb: "{{ ulauncher_deb }}/{{ version }}/ulauncher_{{ ulauncher_version }}_all.deb"
+    creates: /usr/bin/ulauncher

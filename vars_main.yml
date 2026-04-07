@@ -1,15 +1,13 @@
 ---
-# lsa vars
-lsd_version: 0.22.0
-lsd_repo: https://github.com/Peltoche/lsd/releases/download
-lsd_nerdfonts: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip
+# lsd vars
+lsd_nerdfonts: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/3270.zip
 
 # nano vars
 nano_version: 2020.10.10
 nano_repo: https://github.com/scopatz/nanorc.git
 
 # ulauncher vars
-ulauncher_version: 5.14.4
+ulauncher_version: 5.15.15
 ulauncher_deb: https://github.com/Ulauncher/Ulauncher/releases/download
 
 # vagrant vars
@@ -17,7 +15,7 @@ vagrant_deb: https://releases.hashicorp.com/vagrant
 vagrant_key: hashicorp-archive-keyring.gpg
 vagrant_url_key: https://apt.releases.hashicorp.com/gpg
 vagrant_url_repo: https://apt.releases.hashicorp.com
-ubuntu_codename: focal
+ubuntu_codename: noble
 
 # brave vars
 brave_url: https://brave-browser-apt-release.s3.brave.com
